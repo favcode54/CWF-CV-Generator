@@ -28,9 +28,17 @@ app.use(express.static(__dirname + "/../public"))
 
 
 app.get('/', (req, res) => {
+  res.render('landing')
+});
+
+
+app.get('/home', (req, res) => {
   res.render('index')
 });
 
+app.get('/learn', (req, res) => {
+  res.render('learn')
+});
 
 app.post('/generate', (req, res) => {
   var data = req.body
@@ -141,7 +149,7 @@ var webpage = `
   var options = { format: 'A4' };
 
   //Reads the Base Template from the Views Folder
-  var template = hbs.compile(fs.readFileSync('././views/generate.hbs', 'utf8'));
+  var template = hbs.compile(fs.readFileSync('././views/gen.hbs', 'utf8'));
 
   //Proccessing the base template with the content
   var html = template({content:webpage})

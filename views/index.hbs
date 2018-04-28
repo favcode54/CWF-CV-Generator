@@ -7,145 +7,49 @@
     <title>FavCode54</title>
 </head>
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
 <!-- UIkit CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css" />
 
-<!-- UIkit JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit-icons.min.js"></script>
+<link rel="stylesheet" type="text/css" href="init.css">
 
-
-<style>
-
-    *{
-        padding:0;
-        margin: 0;
-    }
-
-
-        .container {
-            background-color: rgba(255, 255, 255, 0.5);
-            display: flex;
-            justify-content: center;
-            justify-items: center;
-            align-items: center;
-            position: relative;
-        }
-
-        #editor {
-            position: relative;
-           
-            height: 80vh;
-        }
-
-        .form-wrapper {
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .button {
-            padding: 10px 55px;
-            margin-top: 10px;
-            background: black;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-    .sidebar{
-        width: 360px;
-        background-color: white;
-        border-radius: 0 10px 0 10px;
-        border: solid 1px;
-        box-shadow: 1px 1px 2px red;
-    }
-
-    .logo{
-    max-height: 2em;
-    margin: 0.5em;
-    max-width: none;
-    }
-    .title {
-        font-size: 2em;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-        
-</style>
 <body>
 
-<nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
+<nav class="white">
+    <div class="nav-wrapper">
 
-        <a class="uk-navbar-item uk-logo" href="#"><img src="https://favcode54.org/images/favcode54-logo.png" class="logo"/></a>
-
-        <ul class="uk-navbar-nav">
-            <li>
-                
-            </li>
-        </ul>
-
-
+        <a href="/" class="brand-logo"><img src="https://favcode54.org/images/favcode54-logo.png" class="logo responsive-img"/></a>
     </div>
 </nav>
-<div class="mobile uk-card uk-width-1-1 uk-card-default uk-card-body uk-hidden@m uk-margin-small">
-    <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
-
-        <li class="uk-nav-header">Quick Links</li>
-        <li>
-            <a href="#" data-id="generate">
-                <span class="uk-margin-small-right" uk-icon="icon: table"></span> Generate PDF</a>
-        </li>
-        <li>
-            <a href="#" data-id="reset">
-                <span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Reset</a>
-        </li>
-        <li class="uk-nav-divider"></li>
-        <li>
-            <a href="#" data-id="clear">
-                <span class="uk-margin-small-right" uk-icon="icon: trash"></span> Clear</a>
-        </li>
-    </ul>
 
 
-</div>
-<div class="uk-flex uk-flex-around ">
-    <div class="desktop uk-card uk-width-1-6 uk-card-default uk-card-body uk-visible@m">
-                    <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
-                
-                <li class="uk-nav-header">Quick Links</li>
-                <li>
-                    <a href="#" data-id="generate">
-                        <span class="uk-margin-small-right" uk-icon="icon: table"></span> Generate PDF</a>
-                </li>
-                <li>
-                    <a href="#" data-id="reset">
-                        <span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Reset </a>
-                </li>
-                <li class="uk-nav-divider"></li>
-                <li>
-                    <a href="#" data-id="clear">
-                        <span class="uk-margin-small-right" uk-icon="icon: trash"></span> Clear</a>
-                </li>
-            </ul>
-       
-        
-    </div>
+
+
+<div class="fixed-action-btn">
+     <a class="btn-floating btn-large blue pulse">
+    <i class="large material-icons">mode_edit</i>
+  </a>
+<ul>
+   
+<li><a class="btn tooltipped btn-floating red" data-position="left" data-tooltip="Download" id="generate"><i class="material-icons">publish</i></a></li>
+                   
+<li><a class="btn tooltipped btn-floating yellow darken-1" data-position="left" data-tooltip="Reset" id="reset"><i class="material-icons">refresh</i></a></li>  
   
-
+  <li><a class="btn tooltipped btn-floating blue" data-position="left" data-tooltip="Clear" id="clear"><i class="material-icons">remove_circle_outline
+</i></a></li>      
+</div>
+  
+<div id="divider"></div>
 <div id="editor" class="uk-card uk-width-1-1 uk-card-default uk-card-body" name="json"></div>
-    
-
-
-</div>
-
-</div>
 <a id="download_link" href="#" target="_blank" style="display:none"></a>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script type="text/javascript" src="init.js"></script>
 <script src="/assets/js/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
    
@@ -430,7 +334,6 @@ json = editor.getValue();
             };
 
             var temp = generate.innerHTML;
-            generate.innerHTML = "Generating";
             console.log('generating...');
 
             fetch("/generate", options)
