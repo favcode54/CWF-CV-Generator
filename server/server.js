@@ -27,8 +27,9 @@ app.use(express.static(__dirname + "/../public"))
 //Routes
 
 
+
 app.get('/', (req, res) => {
-  res.render('landing')
+  res.render('app')
 });
 
 
